@@ -7,7 +7,7 @@ void pattern8(int n){
             cout<<" ";
         }
         for(int j=0;j<2*n-2*i-1;j++){
-            cout<<"* ";
+            cout<<"*";
         }
         for(int j=0;j<i;j++){
             cout<<" ";
