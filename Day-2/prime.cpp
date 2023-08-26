@@ -9,6 +9,7 @@ void number(int n){
         cout<<"n is prime";
     }
     else{ 
+        //we add a flag in order to keep track of the prime
         bool isPrime = true; 
         for (int i = 2; i <= sqrt(n); i++) {
             if (n % i == 0) {
