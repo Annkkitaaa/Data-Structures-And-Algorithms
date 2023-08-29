@@ -132,10 +132,29 @@ int main(){
    pq.pop();  //{8,5,2}
 
    //SET
+   //everything is sorted and everything is unique
 
    set<int> st;
-   //st.insert(1); //{1}
+   st.insert(1); //{1}
+   st.emplace(2); //{1,2}
+   st.insert(2); //{1,2}
+   st.insert(4); //{1,2,4}
+   st.insert(3); //{1,2,3,4}
 
+   //find,count and erase are important functions
+   auto it=st.find(3);
+
+   //lower and upper bound
+   auto it=st.lower_bound(2);
+   auto it=st.upper_bound(3);
+
+   //multiset
+   //everything same as that of set but it also includes multiple occurances
+   multiset<int> ms;
+   ms.insert(1); //{1}
+   ms.insert(1); //{1,1}
+   ms.erase(1);  //all the 1's are erased 
+   
 
     
 
