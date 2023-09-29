@@ -1,26 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-vector<int> BFS(int n,vector<int> adj[]){
-    vector<int> vis(n,0);
-    queue<int> qt;
-    qt.push(1);
-    vector<int> bfs;
-    vis[1]=1;
-    while(!qt.empty()){
-        int node=qt.front();
-        qt.pop();
-        bfs.push_back(node);
+ 
+void dfs(int node,vector<int> adj[],vector<int> &vis,vector<int> &ls){
+        vis[node]=1;
+        ls.push_back(node);
         for(auto it: adj[node]){
             if(vis[it]!=1){
-                vis[it]=1;
-                qt.push(it);
-
+                dfs(it,adj,vis,ls);
             }
         }
-    }
-    return bfs;
 }
+vector<int> DFS(int n,vector<int> adj[]){
+    vector<int> vis(n+1,0);
+    vector<int> ls;
+    int start=1;
+    dfs(start,adj,vis,ls);
+    return ls;
+}
+
 void adjacencyList(int n,int m,vector<int> adj[]){
      cin.ignore();
     
@@ -44,7 +41,7 @@ int main(){
     
     vector<int> adj[n + 1];
     adjacencyList(n, m, adj);
-    vector<int> ans=BFS(n,adj);
+    vector<int> ans=DFS(n,adj);
 for(auto it: ans){
     cout<<it;
 }   
